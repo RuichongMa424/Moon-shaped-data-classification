@@ -1,4 +1,4 @@
-![til](.msdc.gif)
+![til](./msdc.gif)
 
 #### Install Dependencies
 
