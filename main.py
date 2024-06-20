@@ -1,3 +1,5 @@
+import sklearn.model_selection
+
 from model import model
 from auto_diff import AutoDiff
 
@@ -17,20 +19,6 @@ def load_dataset(plot=False):
     train_Y = train_Y.reshape((1, train_Y.shape[0]))
 
     return train_X, train_Y
-
-def split_dataset(x, y, test_size=0.1):
-
-    # 计算测试集的样本数
-    num_test_samples = int(x.shape[1] * test_size)
-
-    # 划分训练集和测试集
-    X_train = x[:, :-num_test_samples]
-    y_train = y[:, :-num_test_samples]
-    X_test = x[:, -num_test_samples:]
-    y_test = y[:, -num_test_samples:]
-
-    return X_train, X_test, y_train, y_test
-
 
 def predict(x, p):
     m = x.shape[1]
@@ -81,7 +69,7 @@ def main():
 
     ##读取数据集代码
     train_X, train_Y = load_dataset(plot=True)
-    train_x,test_x, train_y, test_y = split_dataset(train_X, train_Y, test_size=0.1)
+    train_x,test_x, train_y, test_y = sklearn.model_selection.train_test_split(train_X, train_Y, test_size=0.1)
 
     #初始化
     parameters = Parameters(input_size, hidden_size, output_size)
