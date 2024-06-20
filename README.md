@@ -1,4 +1,4 @@
-![til](./msdc.gif)
+![til](./decision_boundary.gif)
 
 #### Install Dependencies
 
